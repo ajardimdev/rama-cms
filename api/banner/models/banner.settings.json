@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banners",
+  "info": {
+    "name": "Banner",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "legend": {
+      "type": "string"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "video",
+        "image"
+      ],
+      "required": true
+    },
+    "page": {
+      "type": "enumeration",
+      "enum": [
+        "home",
+        "news",
+        "artist"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
