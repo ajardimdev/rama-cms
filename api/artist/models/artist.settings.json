@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "artists",
   "info": {
-    "name": "Artist"
+    "name": "Artist",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -15,14 +16,15 @@
       "required": true
     },
     "bio": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "highlight_image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
       ],
       "plugin": "upload",
@@ -32,15 +34,35 @@
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "order": {
+      "type": "integer"
+    },
+    "bio_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
       ],
       "plugin": "upload",
       "required": false
     },
-    "spotify_tracks": {
-      "type": "json"
+    "resume": {
+      "type": "string"
+    },
+    "jobs": {
+      "collection": "job"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/artists": {
+    "/jobs": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Artist"
+                    "$ref": "#/components/schemas/Job"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Artist"
+          "Job"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Artist"
+                  "$ref": "#/components/schemas/Job"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Artist"
+          "Job"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewArtist"
+                "$ref": "#/components/schemas/NewJob"
               }
             }
           }
         }
       }
     },
-    "/artists/count": {
+    "/jobs/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Artist"
+          "Job"
         ],
         "parameters": []
       }
     },
-    "/artists/{id}": {
+    "/jobs/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Artist"
+                  "$ref": "#/components/schemas/Job"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Artist"
+          "Job"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Artist"
+                  "$ref": "#/components/schemas/Job"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Artist"
+          "Job"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewArtist"
+                "$ref": "#/components/schemas/NewJob"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Artist"
+          "Job"
         ],
         "parameters": [
           {
@@ -514,13 +514,10 @@
   },
   "components": {
     "schemas": {
-      "Artist": {
+      "Job": {
         "required": [
           "id",
-          "name",
-          "bio",
-          "banners",
-          "slug"
+          "name"
         ],
         "properties": {
           "id": {
@@ -529,10 +526,10 @@
           "name": {
             "type": "string"
           },
-          "bio": {
+          "youtube_link": {
             "type": "string"
           },
-          "highlight_image": {
+          "image": {
             "required": [
               "id",
               "name",
@@ -599,192 +596,22 @@
               }
             }
           },
-          "banners": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "slug": {
+          "spotify_link": {
             "type": "string"
           },
-          "order": {
-            "type": "integer"
-          },
-          "bio_image": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "resume": {
+          "description": {
             "type": "string"
           },
-          "jobs": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "youtube_link": {
-                "type": "string"
-              },
-              "image": {
-                "type": "string"
-              },
-              "spotify_link": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              },
-              "release_date": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "type": {
+            "type": "string",
+            "enum": [
+              "principal",
+              "related"
+            ]
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",
@@ -792,30 +619,33 @@
           }
         }
       },
-      "NewArtist": {
+      "NewJob": {
         "required": [
-          "name",
-          "bio",
-          "slug"
+          "name"
         ],
         "properties": {
           "name": {
             "type": "string"
           },
-          "bio": {
+          "youtube_link": {
             "type": "string"
           },
-          "slug": {
+          "spotify_link": {
             "type": "string"
           },
-          "order": {
-            "type": "integer"
-          },
-          "resume": {
+          "description": {
             "type": "string"
           },
-          "jobs": {
-            "type": "string"
+          "type": {
+            "type": "string",
+            "enum": [
+              "principal",
+              "related"
+            ]
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",
@@ -833,7 +663,7 @@
   },
   "tags": [
     {
-      "name": "Artist"
+      "name": "Job"
     }
   ]
 }
